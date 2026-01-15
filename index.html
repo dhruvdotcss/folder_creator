@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Turn a list of paths into a project structure — instantly. Client-side only.">
+  <title>Files Converting — Generate project structures from paths</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=panchang@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>Turn a list of paths into a project — instantly.</h1>
+    <p class="subtext">Paste paths. Preview. Download a zip. Nothing leaves your browser.</p>
+    <button class="cta-primary" id="paste-cta" aria-label="Jump to input area">Paste paths</button>
+  </header>
+
+  <main>
+    <section class="input-section" id="input-section">
+      <div class="textarea-wrapper">
+        <textarea 
+          id="path-input" 
+          placeholder="One path per line. End with '/' for folders.&#10;&#10;Example:&#10;src/components/&#10;src/components/Button.tsx&#10;src/utils/helpers.ts"
+          rows="15"
+          aria-label="Paste your file and folder paths here"
+        ></textarea>
+        <div class="line-counter" id="line-counter" aria-live="polite">0 lines</div>
+      </div>
+      <div class="input-actions">
+        <button class="btn-primary" id="preview-btn" aria-label="Preview the folder structure">Preview</button>
+        <button class="btn-secondary" id="clear-btn" aria-label="Clear input">Clear</button>
+      </div>
+    </section>
+
+    <section class="preview-section" id="preview-section" hidden>
+      <div class="preview-summary" id="preview-summary" role="status" aria-live="polite"></div>
+      <div class="tree-container" id="tree-container" role="tree" aria-label="Folder structure preview"></div>
+      <div class="preview-actions">
+        <button class="btn-primary" id="download-zip-btn" aria-label="Download as ZIP file">Download .zip</button>
+        <button class="btn-primary" id="create-folder-btn" hidden aria-label="Create folder structure directly on disk">Create to folder (Chrome)</button>
+        <button class="btn-secondary" id="copy-cleaned-btn" aria-label="Copy cleaned path list">Copy cleaned list</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Client-side only. Your data never leaves your device.</p>
+    <nav>
+      <a href="#privacy" id="privacy-link">Privacy</a>
+      <span aria-hidden="true">•</span>
+      <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </footer>
+
+  <div id="privacy-modal" class="modal" hidden role="dialog" aria-labelledby="privacy-title">
+    <div class="modal-content">
+      <h2 id="privacy-title">Privacy</h2>
+      <p>This application runs entirely in your browser. No data is sent to any server. All processing happens locally on your device.</p>
+      <button class="btn-primary" id="close-privacy-btn" aria-label="Close privacy information">Close</button>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
